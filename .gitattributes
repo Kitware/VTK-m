@@ -1,3 +1,11 @@
+# Attributes used for formatting.
+[attr]our-c-style   whitespace=tab-in-indent  format.clang-format
+
+*.cxx   our-c-style
+*.h     our-c-style
+*.hxx   our-c-style
+*.cu    our-c-style
+
 data/* filter=lfs diff=lfs merge=lfs -text
 /**/data/* filter=lfs diff=lfs merge=lfs -text
 
