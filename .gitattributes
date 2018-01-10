@@ -13,3 +13,5 @@ data/* filter=lfs diff=lfs merge=lfs -text
 *.md             whitespace=tab-in-indent conflict-marker-size=79 -whitespace
 *.rst            whitespace=tab-in-indent conflict-marker-size=79
 *.txt            whitespace=tab-in-indent
+
+vtkm/thirdparty/diy/vtkmdiy/**           -format.clang-format -whitespace
