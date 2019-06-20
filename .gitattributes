@@ -16,3 +16,4 @@ data/* filter=lfs diff=lfs merge=lfs -text
 
 vtkm/thirdparty/diy/vtkmdiy/**           -format.clang-format -whitespace
 vtkm/thirdparty/optionparser/vtkmoptionparser/** -format.clang-format -whitespace
+vtkm/thirdparty/lodepng/vtkmlodepng/** -format.clang-format -whitespace
