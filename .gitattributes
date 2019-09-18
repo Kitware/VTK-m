@@ -6,8 +6,8 @@
 *.hxx   our-c-style
 *.cu    our-c-style
 
-data/* filter=lfs diff=lfs merge=lfs -text
-/**/data/* filter=lfs diff=lfs merge=lfs -text
+data/** filter=lfs diff=lfs merge=lfs -text
+/**/data/** filter=lfs diff=lfs merge=lfs -text
 
 *.cmake          whitespace=tab-in-indent
 *.md             whitespace=tab-in-indent conflict-marker-size=79 -whitespace
@@ -15,3 +15,5 @@ data/* filter=lfs diff=lfs merge=lfs -text
 *.txt            whitespace=tab-in-indent
 
 vtkm/thirdparty/diy/vtkmdiy/**           -format.clang-format -whitespace
+vtkm/thirdparty/optionparser/vtkmoptionparser/** -format.clang-format -whitespace
+vtkm/thirdparty/lodepng/vtkmlodepng/** -format.clang-format -whitespace
