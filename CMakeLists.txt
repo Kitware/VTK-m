@@ -161,7 +161,7 @@ include(VTKmCompilerFlags)
 #-----------------------------------------------------------------------------
 # We need to check and see if git lfs is installed so that test data will
 # be available for use
-file(READ "${VTKm_SOURCE_DIR}/data/sentinel-data" data)
+file(READ "${VTKm_SOURCE_DIR}/data/data/sentinel-data" data)
 if (NOT data STREQUAL "\n")
   message(WARNING
     "Testing is enabled, but the data is not available. Use git lfs in order "
