@@ -161,12 +161,14 @@ include(VTKmCompilerFlags)
 #-----------------------------------------------------------------------------
 # We need to check and see if git lfs is installed so that test data will
 # be available for use
-file(READ "${VTKm_SOURCE_DIR}/data/data/sentinel-data" data)
-if (NOT data STREQUAL "\n")
-  message(WARNING
-    "Testing is enabled, but the data is not available. Use git lfs in order "
-    " to obtain the testing data.")
-  set(VTKm_ENABLE_TESTING off)
+if (VTKm_ENABLE_TESTING)
+  file(STRINGS "${VTKm_SOURCE_DIR}/data/data/sentinel-data" sentinel_data LIMIT_COUNT 1)
+  if (NOT sentinel_data STREQUAL "-- DO NOT MODIFY THIS LINE --")
+    message(WARNING
+      "Testing is enabled, but the data is not available. Use git lfs in order "
+      "to obtain the testing data.")
+    set(VTKm_ENABLE_TESTING off)
+  endif()
 endif()
 
 # We include the wrappers unconditionally as VTK-m expects the function to
