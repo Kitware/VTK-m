@@ -11,11 +11,11 @@
 # If you want CUDA support, you will need to have CMake 3.9 on Linux/OSX.
 # We require CMake 3.11 with the MSVC generator as the $<COMPILE_LANGUAGE:>
 # generator expression is not supported on older versions.
-cmake_minimum_required(VERSION 3.8...3.15 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.12...3.15 FATAL_ERROR)
 project (VTKm)
 
 if(${CMAKE_GENERATOR} MATCHES "Visual Studio")
-  cmake_minimum_required(VERSION 3.11...3.15 FATAL_ERROR)
+  cmake_minimum_required(VERSION 3.12...3.15 FATAL_ERROR)
 endif()
 
 # Update module path
@@ -161,14 +161,13 @@ include(VTKmCompilerFlags)
 #-----------------------------------------------------------------------------
 # We need to check and see if git lfs is installed so that test data will
 # be available for use
-file(READ "${VTKm_SOURCE_DIR}/data/data/sentinel-data" data)
-if (NOT data STREQUAL "\n")
-  message(WARNING
-    "Testing is enabled, but the data is not available. Use git lfs in order "
-    " to obtain the testing data.")
-  set(VTKm_ENABLE_TESTING off)
-  if (CTEST_USE_LAUNCHERS)
-    set(CTEST_USE_LAUNCHERS off)
+if (VTKm_ENABLE_TESTING)
+  file(STRINGS "${VTKm_SOURCE_DIR}/data/data/sentinel-data" sentinel_data LIMIT_COUNT 1)
+  if (NOT sentinel_data STREQUAL "-- DO NOT MODIFY THIS LINE --")
+    message(WARNING
+      "Testing is enabled, but the data is not available. Use git lfs in order "
+      "to obtain the testing data.")
+    set(VTKm_ENABLE_TESTING off)
   endif()
 endif()
 
@@ -200,10 +199,9 @@ if (VTKm_ENABLE_TESTING)
   # faux variadic template code
   find_package(Pyexpander QUIET)
 
-  #-----------------------------------------------------------------------------
   # Setup compiler flags for dynamic analysis if needed
-  include(VTKmCompilerDynamicAnalysisFlags)
-  vtkm_check_sanitizer_build()
+  include(testing/VTKmCompilerDynamicAnalysisFlags)
+
 endif (VTKm_ENABLE_TESTING)
 
 #-----------------------------------------------------------------------------
@@ -340,6 +338,8 @@ if (VTKm_ENABLE_TESTING)
   # installed version of VTK-m.
   include(testing/VTKmTestInstall)
   vtkm_test_install()
+else ()
+  set(CTEST_USE_LAUNCHERS off)
 endif()
 
 #-----------------------------------------------------------------------------
