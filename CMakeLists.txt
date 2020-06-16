@@ -192,7 +192,7 @@ if (VTKm_ENABLE_TESTING)
 
   #-----------------------------------------------------------------------------
   # Find the Python interpreter, which we will use during the build process
-  find_package(PythonInterp QUIET)
+  find_package(Python QUIET COMPONENTS Interpreter)
 
   #-----------------------------------------------------------------------------
   # Find Pyexpander in case somebody wants to update the auto generated
@@ -268,7 +268,6 @@ if(NOT VTKm_INSTALL_ONLY_LIBRARIES)
     FILES
       ${VTKm_SOURCE_DIR}/CMake/FindTBB.cmake
       ${VTKm_SOURCE_DIR}/CMake/FindMPI.cmake
-      ${VTKm_SOURCE_DIR}/CMake/FindOpenGL.cmake
     DESTINATION ${VTKm_INSTALL_CMAKE_MODULE_DIR}
     )
 
@@ -278,6 +277,7 @@ if(NOT VTKm_INSTALL_ONLY_LIBRARIES)
       ${VTKm_SOURCE_DIR}/CMake/VTKmCPUVectorization.cmake
       ${VTKm_SOURCE_DIR}/CMake/VTKmDetectCUDAVersion.cu
       ${VTKm_SOURCE_DIR}/CMake/VTKmDeviceAdapters.cmake
+      ${VTKm_SOURCE_DIR}/CMake/VTKmDIYUtils.cmake
       ${VTKm_SOURCE_DIR}/CMake/VTKmExportHeaderTemplate.h.in
       ${VTKm_SOURCE_DIR}/CMake/VTKmMPI.cmake
       ${VTKm_SOURCE_DIR}/CMake/VTKmRenderingContexts.cmake
