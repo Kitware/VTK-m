@@ -1,9 +1,9 @@
 FROM nvidia/cuda:10.2-devel-centos7
 LABEL maintainer "Robert Maynard<robert.maynard@kitware.com>"
 
-RUN yum install make gcc gcc-c++ curl cuda-compat-10-2 -y
+RUN yum install make gcc gcc-c++ curl cuda-compat-10-2 centos-release-scl -y
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash
-RUN yum install git git-lfs -y
+RUN yum install git git-lfs devtoolset-7-gcc-c++ -y
 
 # Provide a consistent CMake path across all images
 # Install CMake 3.13 as it is the minium for cuda builds
@@ -20,4 +20,4 @@ RUN mkdir /opt/cmake-latest/ && \
     rm cmake-3.17.3-Linux-x86_64.sh && \
     ln -s /opt/cmake-latest/bin/ctest /opt/cmake-latest/bin/ctest-latest
 
-ENV PATH "/opt/cmake/bin:/opt/cmake-latest/bin:${PATH}"
+ENV PATH "/opt/rh/devtoolset-7/root/bin:/opt/cmake/bin:/opt/cmake-latest/bin:${PATH}"
