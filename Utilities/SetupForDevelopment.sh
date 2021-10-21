@@ -31,3 +31,17 @@ true
 
 SetupForDevelopment=1
 git config hooks.SetupForDevelopment ${SetupForDevelopment_VERSION}
+
+# Setup VTK-m-specifc LFS config
+#
+# Disable lfsurl if our origin points to the main repo
+OriginURL=$(git remote get-url origin)
+if [[ "$OriginURL" =~ ^(https://|git@)gitlab\.kitware\.com(/|:)vtk/vtk-m\.git$ ]]
+then
+  # Disable this setting which overrides every remote/url lfs setting
+  git config --local lfs.url "${OriginURL}"
+
+  # Those settings are only available for newer git-lfs releases
+  git config --local remote.lfspushdefault gitlab
+  git config --local remote.lfsdefault origin
+fi
