@@ -254,8 +254,10 @@ VTKM_CONT inline void DataSetIntegratorUnsteadyState::DoAdvect(
   vtkm::FloatDefault vtkmNotUsed(stepSize),
   vtkm::Id vtkmNotUsed(maxSteps))
 {
+  throw vtkm::cont::ErrorFilterExecution(
+    "Unsupported operation : charged particles and electromagnetic fielfs currently only supported "
+    "for steady state");
 }
-
 
 }
 }
