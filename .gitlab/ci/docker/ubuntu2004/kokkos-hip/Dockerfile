@@ -14,6 +14,7 @@ RUN apt update && \
     ninja-build \
     rsync \
     ssh \
+    rocthrust-dev \
     && \
     apt clean
 
