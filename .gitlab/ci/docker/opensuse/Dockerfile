@@ -24,13 +24,17 @@ RUN zypper refresh && \
       git-lfs \
       hdf5-devel \
       libgomp1 \
-      mpich \
-      mpich-devel \
+      libucp-devel \
+      mpich-ofi \
+      mpich-ofi-devel \
       ninja \
+      openucx-tools \
       python311 \
       python311-scipy \
       tbb-devel && \
     zypper clean --all
+
+ENV fI_PROVIDER=sockets
 
 # Need to run git-lfs install manually on system packaged version
 RUN git-lfs install
