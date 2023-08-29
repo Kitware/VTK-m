@@ -242,7 +242,9 @@ cmake_dependent_option(VTKm_ENABLE_KOKKOS_THRUST "Enable Kokkos thrust support (
 # when building VTK-m.
 include(VTKmCompilerFlags)
 
-
+if (VTKM_EXAMPLE_CONTOURTREE_ENABLE_DEBUG_PRINT)
+  add_compile_definitions(DEBUG_PRINT)
+endif()
 #-----------------------------------------------------------------------------
 # We need to check and see if git lfs is installed so that test data will
 # be available for use
