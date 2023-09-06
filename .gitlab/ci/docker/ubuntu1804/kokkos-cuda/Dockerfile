@@ -10,8 +10,8 @@
 ##
 ##=============================================================================
 
-FROM nvidia/cuda:11.6.1-devel-ubuntu18.04
-LABEL maintainer "Vicente Adolfo Bolea Sanchez<vicente.bolea@kitware.com>"
+FROM nvidia/cuda:11.6.2-devel-ubuntu18.04
+LABEL maintainer "Vicente Adolfo Bolea Sanchez<vicente.bolea@gmail.com>"
 
 # Base dependencies for building VTK-m projects
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -19,7 +19,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       g++ \
       git \
       git-lfs \
+      make \
       ninja-build \
+      pkg-config \
       && \
     rm -rf /var/lib/apt/lists/*
 
