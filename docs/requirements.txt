@@ -29,7 +29,7 @@ lazr.uri==1.0.6
 MarkupSafe==2.1.3
 mercurial==6.1.1
 more-itertools==8.10.0
-oauthlib==3.2.0
+oauthlib==3.2.2
 packaging==23.2
 patiencediff==0.2.1
 PyGithub==1.55
