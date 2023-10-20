@@ -26,9 +26,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
       libtbb-dev \
       mpich \
       ninja-build \
+      python3-breathe \
+      python3-sphinx-rtd-theme \
       rsync \
-      ssh \
-      software-properties-common
+      software-properties-common \
+      sphinx-rtd-theme-common \
+      ssh
 
 # Need to run git-lfs install manually on ubuntu based images when using the
 # system packaged version
