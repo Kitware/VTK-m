@@ -6,7 +6,7 @@ breezy==3.2.1
 certifi==2020.6.20
 chardet==4.0.0
 configobj==5.0.6
-cryptography==3.4.8
+cryptography==41.0.4
 dbus-python==1.2.18
 Deprecated==1.2.13
 distro==1.7.0
