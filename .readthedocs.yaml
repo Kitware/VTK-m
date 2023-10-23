@@ -25,6 +25,7 @@ build:
   jobs:
     post_install:
     - git lfs install
+    - git lfs fetch --include "*.png"
     - git lfs checkout docs/users-guide/images/
     - cmake -B build -S . -DVTKm_ENABLE_DOCUMENTATION=ON -DVTKm_ENABLE_USERS_GUIDE=ON
     - cmake --build build --target VTKmDoxygenDocs
