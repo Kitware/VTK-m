@@ -25,7 +25,8 @@ build:
   jobs:
     post_install:
     - git lfs install --local
-    - git lfs fetch --include "*.png" origin
+    - git lfs fetch --include "*.png"
+    - git lfs checkout *.png
     - cmake -B build -S . -DVTKm_ENABLE_DOCUMENTATION=ON -DVTKm_ENABLE_USERS_GUIDE=ON
     - cmake --build build --target VTKmDoxygenDocs
     - cp -f ./build/docs/users-guide/VTKmUsersGuideHTML.cache/conf.py docs/users-guide/conf.py
