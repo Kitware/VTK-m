@@ -19,10 +19,13 @@ build:
   apt_packages:
   - cmake
   - make
+  - git-lfs
   tools:
     python: '3.10'
   jobs:
     post_install:
+    - git lfs install
+    - git lfs checkout docs/users-guide/images/
     - cmake -B build -S . -DVTKm_ENABLE_DOCUMENTATION=ON -DVTKm_ENABLE_USERS_GUIDE=ON
     - cmake --build build --target VTKmDoxygenDocs
     - cp -f ./build/docs/users-guide/VTKmUsersGuideHTML.cache/conf.py docs/users-guide/conf.py
