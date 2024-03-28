@@ -11,7 +11,7 @@
 ##=============================================================================
 
 FROM ubuntu:20.04
-LABEL maintainer "Robert Maynard<robert.maynard@kitware.com>"
+LABEL maintainer "Vicente Adolfo Bolea Sanchez<vicente.bolea@gmail.com>"
 
 # Base dependencies for building VTK-m projects
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -26,9 +26,17 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
       libtbb-dev \
       mpich \
       ninja-build \
+      python3-pip \
       rsync \
-      ssh \
-      software-properties-common
+      software-properties-common \
+      ssh
+
+RUN python3 -m pip install \
+      breathe \
+      sphinx \
+      sphinxcontrib-moderncmakedomain \
+      sphinxcontrib-packages \
+      sphinx-rtd-theme
 
 # Need to run git-lfs install manually on ubuntu based images when using the
 # system packaged version
