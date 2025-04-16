@@ -1,6 +1,17 @@
 ![GitLab tag](https://img.shields.io/gitlab/v/tag/vtk/vtk-m?color=red&gitlab_url=https%3A%2F%2Fgitlab.kitware.com&include_prereleases&sort=semver)  
 ![Spack version](https://img.shields.io/spack/v/vtk-m.svg)  
 
+# ⚠️ DISCONTINUATION NOTICE ⚠️
+
+## VTK-m has been rebranded as Viskores
+
+**This repository is no longer maintained or updated.**
+
+As part of the transition to the High Performance Software Foundation (HPSF), VTK-m has been rebranded as Viskores and migrated from Kitware's GitLab to GitHub. All future development, releases, and support will be provided through the Viskores repository.
+
+- **New Repository:** [https://github.com/Viskores/viskores](https://github.com/Viskores/viskores)
+
+
 # VTK-m #
 
 VTK-m is a toolkit of scientific visualization algorithms for emerging
